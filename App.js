@@ -1,6 +1,12 @@
-import { StatusBar } from "expo-status-bar";
+// import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 export default function App() {
   const [people, setPeople] = useState([
@@ -16,6 +22,13 @@ export default function App() {
     { name: "Mark", id: "10" },
   ]);
 
+  const pressHandler = (id) => {
+    // console.log(id)
+    setPeople((prevPeople) => {
+      return prevPeople.filter(person => person.id != id) //return a beelean, this case is false, so it filters out of the new array.
+    })
+  }
+
   return (
     <View style={styles.container}>
       {/* flatList component  less code */}
@@ -24,9 +37,11 @@ export default function App() {
         numColumns={2}
         keyExtractor={(item) => item.id}
         data={people}
-        renderItem={( { item }) => (
-          <Text style={styles.item}>{item.name}</Text>
-        )}  
+        renderItem={({ item }) => (
+          <TouchableOpacity onPress={() => pressHandler(item.id)}>
+            <Text style={styles.item}>{item.name}</Text>
+          </TouchableOpacity>
+        )}
       />
       {/* <ScrollView>
         {people.map(item => (
