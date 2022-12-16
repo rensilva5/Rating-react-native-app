@@ -1,7 +1,7 @@
-**# todos-react-native-app**
+ todos-react-native-app
 -New react-native app. Todos app with functional components and styles:
 
-# Create folder, then file
+**# Create folder, then file
 
 # Update Node.js
 
@@ -20,3 +20,4 @@
 # Giving the app a shape using more components, such as app.js, addTodos, and header.js
 
 # Setting alerts and closing them with length parameters for the user to input.
+**
