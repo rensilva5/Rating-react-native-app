@@ -1,5 +1,6 @@
 // import { StatusBar } from "expo-status-bar";
 import Header from "./components/header";
+import TodoItem from "./components/todoItem";
 import { useState } from "react";
 import {
   FlatList,
@@ -13,7 +14,13 @@ export default function App() {
     { text: 'buy shampoo', key: '1'},
     { text: 'buy soap', key: '2'},
     { text: 'pay water bill', key: '3'},
-  ])
+  ]);
+
+  const pressHandler = (key) => {
+    setTodos((prevTodos) => {
+      return prevTodos.filter(todo => todo.key != key)
+    })
+  }
 
   return (
     <View style={styles.container}>
@@ -24,7 +31,7 @@ export default function App() {
           <FlatList
             data={todos}
             renderItem={({ item }) => (
-              <Text>{item.text}</Text>
+              <TodoItem item={item} pressHandler={pressHandler}/>
             )}
           />
         </View>
