@@ -2,18 +2,19 @@
 import Header from "./components/header";
 import TodoItem from "./components/todoItem";
 import { useState } from "react";
-import {
-  FlatList,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
+import AddTodo from "./components/addTodo";
 
 export default function App() {
   const [todos, setTodos] = useState([
     { text: 'buy shampoo', key: '1'},
     { text: 'buy soap', key: '2'},
-    { text: 'pay water bill', key: '3'},
+    { text: 'pay FPL bill', key: '3'},
+    { text: 'Groceries list', key: '4'},
+    { text: 'Switch to X-finity', key: '5'},
+    { text: `Make Dr.'s appoinment`, key: '6'},
+    { text: 'Application online', key: '7'},
+    { text: 'Search local and remote jobs', key: '8'},
   ]);
 
   const pressHandler = (key) => {
@@ -22,11 +23,20 @@ export default function App() {
     })
   }
 
+  const submitHandler = (text) => {
+    setTodos((prevTodos) => {
+      return [
+        {text: text, key: Math.random().toString()},
+        ...prevTodos
+      ]
+    })
+  }
+
   return (
     <View style={styles.container}>
       <Header />
       <View style={styles.content}>
-        {/* to form */}
+        <AddTodo submitHandler={submitHandler}/>
         <View style={styles.list}>
           <FlatList
             data={todos}
