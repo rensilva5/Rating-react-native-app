@@ -2,7 +2,7 @@
 import Header from "./components/header";
 import TodoItem from "./components/todoItem";
 import { useState } from "react";
-import { Alert, FlatList, StyleSheet, Text, View } from "react-native";
+import { Alert, FlatList, Keyboard, StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
 import AddTodo from "./components/addTodo";
 
 export default function App() {
@@ -39,22 +39,27 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Header />
-      <View style={styles.content}>
-        <AddTodo submitHandler={submitHandler}/>
-        <View style={styles.list}>
-          <FlatList
-            data={todos}
-            renderItem={({ item }) => (
-              <TodoItem item={item} pressHandler={pressHandler}/>
-            )}
-          />
-        </View>
+    <TouchableWithoutFeedback onPress={() => {
+      Keyboard.dismiss();
+      console.log('dissmissed keyboard')
+    }}>
+      <View style={styles.container}>
+        <Header />
+        <View style={styles.content}>
+          <AddTodo submitHandler={submitHandler}/>
+          <View style={styles.list}>
+            <FlatList
+              data={todos}
+              renderItem={({ item }) => (
+                <TodoItem item={item} pressHandler={pressHandler}/>
+              )}
+            />
+          </View>
 
+        </View>
+        
       </View>
-      
-    </View>
+    </TouchableWithoutFeedback>
   );
 }
 
