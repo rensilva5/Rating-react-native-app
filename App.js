@@ -41,7 +41,7 @@ export default function App() {
   return (
     <TouchableWithoutFeedback onPress={() => {
       Keyboard.dismiss();
-      console.log('dissmissed keyboard')
+      // console.log('dissmissed keyboard')
     }}>
       <View style={styles.container}>
         <Header />
@@ -72,13 +72,11 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 40,
-
   },
   list: {
     marginTop: 20,
   }
 });
-
 
 // import { useState } from "react";
 // import {
