@@ -12,7 +12,7 @@ const TodoItem = ({ item, pressHandler }) => {
 const styles = StyleSheet.create({
     item: {
         padding: 16,
-        marginTop: 16,
+        marginTop: 15,
         borderColor: '#bbb',
         borderWidth: 2,
         borderStyle: 'dashed',
