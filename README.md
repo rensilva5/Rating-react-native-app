@@ -1,7 +1,12 @@
 Simulator Screen Shot - iPhone 14 - 2022-12-15 at 22.32.02.png
 
 # todos-react-native-app
+
 -New react-native app. Todos app with functional components and styles:
+
+- To create a project first install expo cli
+
+- Then expo init 'name of the project' then cd 'name of the project.
 
 - Create folder, then file
 
